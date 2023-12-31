@@ -2,6 +2,7 @@ const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random"
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
+const nexButtonElement = document.getElementById('nextButton')
 
 quoteInputElement.addEventListener("input", () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
@@ -23,7 +24,15 @@ quoteInputElement.addEventListener("input", () => {
             correct = false
         }
     })
-    if (correct) renderNewQuote()
+    if (correct) {
+        nexButtonElement.classList.remove('display-none')
+        quoteInputElement.classList.add('display-none')
+        timerElement.classList.add("display-none")
+    } else {
+        nexButtonElement.classList.add('display-none')
+        quoteInputElement.classList.remove('display-none')
+        timerElement.classList.remove("display-none")
+    }
 })
 
 function getRandomQuote() {
@@ -41,7 +50,6 @@ async function renderNewQuote() {
         quoteDisplayElement.appendChild(characterSpan)
     })
     quoteInputElement.value = null
-    startTimer()
 }
 
 
@@ -58,5 +66,15 @@ function startTimer() {
 function getTimerTime() {
     return Math.floor((new Date() - startTime) / 1000)
 }
+
+quoteInputElement.addEventListener("click", () => {
+    startTimer()
+})
+
+nexButtonElement.addEventListener("click", () => {
+    renderNewQuote()
+    nexButtonElement.classList.add("display-none")
+    quoteInputElement.classList.remove("display-none")
+})
 
 renderNewQuote()

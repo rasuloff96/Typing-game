@@ -11,7 +11,8 @@ html {
 
 body {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
     color: #595A5E;
@@ -31,18 +32,57 @@ h1 {
     height: 40 0px;
 }
 
+.time-functions {
+    gap: 15px;
+    top: 5rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    padding: .3rem 1rem;
+    border-radius: .5rem;
+    background-color: #2C2E31;
+    margin-bottom: 2rem;
+    margin-left: calc(1rem + 2px);
+}
+
+.time-functions button {
+    width: 60px;
+    height: 40px;
+    border: none;
+    display: flex;
+    color: #595A5E;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.time-functions button:hover {
+    color: #fff;
+}
+
+.time-functions button:focus {
+    color: #E2B714;
+}
+
+.none-line {
+    width: 3px;
+    height: 35px;
+    background-color: #323437;
+    border-radius: .3rem;
+}
+
 .timer {
-    position: absolute;
-    top: 8rem;
-    left: 2rem;
     font-size: 3rem;
     color: #E2B714;
     font-weight: bold;
+    margin-left: calc(1rem + 2px);
+    margin-bottom: 1.5rem;
 }
 
 .quote-display {
-    margin-bottom: 1rem;
     font-size: 2rem;
+    margin-bottom: 1rem;
     margin-left: calc(1rem + 2px);
     margin-right: calc(1rem + 2px);
 }
@@ -54,18 +94,19 @@ h1 {
     outline: none;
     width: 100%;
     height: 8rem;
-    margin: auto;
     resize: none;
     transition: all 0.3s ease-in-out;
     padding: .6rem 1rem;
     font-size: 2rem;
     border-radius: .5rem;
+    margin-left: calc(1rem + 2px);
 }
 
 .quote-input:focus {
     border-color: transparent;
     color: white;
     font-size: 1.6rem;
+    padding: 0;
 }
 
 .correct {
@@ -75,4 +116,30 @@ h1 {
 .incorrect {
     color: #C14652;
     text-decoration: underline;
+}
+
+.next-button {
+    width: 200px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #595A5E;
+    border-radius: .3rem;
+    margin-left: calc(1rem + 2px);
+    border: 2px solid #2C2E31;
+    background-color: #323437;
+    margin-top: 1.3rem;
+}
+
+.next-button:hover {
+    background-color: #36383a;
+}
+
+.next-button:active {
+    color: #fff;
+    font-size: 19px;
+}
+
+.display-none {
+    display: none;
 }
