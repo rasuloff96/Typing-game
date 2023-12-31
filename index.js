@@ -3,11 +3,13 @@ const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const nexButtonElement = document.getElementById('nextButton')
+const navElement = document.getElementById('navElement')
 
 quoteInputElement.addEventListener("input", () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
     const arrayValue = quoteInputElement.value.split('')
     let correct = true
+    navElement.classList.add('display-none')
     arrayQuote.forEach((characterSpan, index) => {
         const character = arrayValue[index]
 
@@ -28,10 +30,12 @@ quoteInputElement.addEventListener("input", () => {
         nexButtonElement.classList.remove('display-none')
         quoteInputElement.classList.add('display-none')
         timerElement.classList.add("display-none")
+        navElement.remove("display-none")
     } else {
         nexButtonElement.classList.add('display-none')
         quoteInputElement.classList.remove('display-none')
         timerElement.classList.remove("display-none")
+        // navElement.add("display-none")
     }
 })
 
